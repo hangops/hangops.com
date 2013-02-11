@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    <p>base.html</p>
     <div id="header">
         <nav>
             <ul>
@@ -48,8 +49,8 @@
             <div id="title">
                 <h1><a href="{{ SITEURL }}/">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
             </div>
-        {% block content %}
-        {% endblock %}
+            {% block content %}
+            {% endblock %}
         </section>
     </div>
 </body>

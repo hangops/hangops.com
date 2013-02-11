@@ -1,20 +1,44 @@
 {% extends "base.html" %}
 {% block content_title %}{% endblock %}
-{% block content %}        
+{% block content %}
+<h2>What?</h2>
+<p>
+    The idea behind #hangops is that a lot of ops folks (and others) are
+    working remotely these days and so #hangops is meant to be a chance
+    to grab a coffee, beer, etc and hang out (virtually)
+</p><p>
+    You can now follow <a href="https://twitter.com/hangops">hangops on Twitter!</a>
+</p>
+<h2>When?</h2>
+<p>
+    #hangops happens every Friday at 11AM Pacific in a Google Hangout. 
+</p><p>
+    Usually <a href="http://www.twitter.com/solarce/">@solarce</a> or 
+    <a href="http://www.twitter.com/jordansissel">@jordansissel</a> will
+    post the Hangout URL shortly before the event.
+</p>
+<h2>Topics?</h2>
+<p>
+    The topics can be something you're working, something you're curious about, or whatever.
+</p><p>
+    If you want to request a topic for a specific week, please 
+    <a href="https://github.com/solarce/hangops.github.com/issues">submit an issue</a> 
+    with your idea/topic/etc.
+</p>
 {% if articles %}
     {% for article in articles_page.object_list %}        
 
         {# First item #}
         {% if loop.first and not articles_page.has_previous() %}
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1> 
-                    {% include 'article_infos.html' %}{{ article.content }}{% include 'comments.html' %}
-                </article>
-                {% if loop.length == 1 %}
-                    {% include 'pagination.html' %}
-                {% endif %}
-            </aside><!-- /#featured -->
+            <article>
+                <h1 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1> 
+                {{ article.content }}
+                {% include 'article_infos.html' %}
+                {% include 'comments.html' %}
+            </article>
+            {% if loop.length == 1 %}
+                {% include 'pagination.html' %}
+            {% endif %}
             {% if loop.length > 1 %}
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -34,8 +58,8 @@
                 </header>
                 
                 <div class="entry-content">
-                {% include 'article_infos.html' %}
                 {{ article.summary }}
+                {% include 'article_infos.html' %}
                 <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">read more</a>
                 {% include 'comments.html' %}
                 </div><!-- /.entry-content -->
