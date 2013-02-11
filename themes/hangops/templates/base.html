@@ -26,20 +26,16 @@
 </head>
 
 <body>
-    <p>base.html</p>
     <div id="header">
         <nav>
             <ul>
-                {% for title, link in MENUITEMS %}
-                  <li><a href="{{ link }}">{{ title }}</a></li>
-                {% endfor %}
                 {% if DISPLAY_PAGES_ON_MENU %}
                 {% for page in PAGES %}
                   <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
                 {% endfor %}
                 {% endif %}
-                {% for cat, null in categories %}
-                  <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                {% for title, link in MENUITEMS %}
+                  <li><a href="{{ link }}">{{ title }}</a></li>
                 {% endfor %}
             </ul>
         </nav>
