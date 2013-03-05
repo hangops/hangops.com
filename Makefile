@@ -11,12 +11,12 @@ FTP_HOST=localhost
 FTP_USER=anonymous
 FTP_TARGET_DIR=/
 
-SSH_HOST=localhost
+SSH_HOST=192.95.24.129
 SSH_PORT=22
-SSH_USER=root
-SSH_TARGET_DIR=/var/www
+SSH_USER=hangops
+SSH_TARGET_DIR=/srv/www/hangops/
 
-DROPBOX_DIR=~/Dropbox/Public/
+DROPBOX_DIR=/srv/www/hangops/
 
 help:
 	@echo 'Makefile for a pelican Web site                                        '
