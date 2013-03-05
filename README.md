@@ -36,3 +36,11 @@ The Python VirtualEnv has the following installed:
     Markdown==2.2.1
     typogrify==2.0.0
     smartypants==1.6.0.3
+
+An XMPP bot is defined as a GitHub Service Hook and will a publish command
+when a commit happens
+
+  hangops@bear.im
+
+  make dropbox_upload
+
