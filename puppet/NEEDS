@@ -1,0 +1,12 @@
+root:
+* python
+* pip
+* pip install virtualenv
+
+user:
+* virtualenv ~/.virtualenv/hangops
+* . ~/.virtualenv/hangops/bin/activate
+* pip install -r requirements.txt
+* make html
+* ... result will be in output/
+
