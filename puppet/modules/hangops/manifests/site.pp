@@ -35,4 +35,12 @@ class hangops::site (
       serveraliases => [ "www.hangops.com", "localhost" ],
       docroot => "$appdir/repo/output";
   }
+
+  cron {
+    "refresh hangops.com":
+      environment => "PATH=/bin:/usr/bin:/usr/sbin:/usr/local/bin:/var/lib/gems/1.8/bin",
+      command => "cd /app/hangops.com/repo; ./puppet/apply.sh",
+      minute => "17",
+      hour => [ 0, 6, 12, 18 ];
+  }
 }
