@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block content %}
+<h2>Submit a Topic Idea</h2>
+
+<form>
+    <p>
+        <label for="topic_email">Your email</label>
+            <input type="text" id="topic_email"/><br/>
+        <label for="topic_idea">Topic Idea</label>
+            <input type="text" id="topic_idea"/><br/>
+    </p>
+    <p>
+        <input type="button" name="post_idea" onclick="post_topic()" value="Submit" />
+    </p>
+</form>
+<script type="text/javascript">
+function post_topic() {
+    var topicEmail = document.getElementById("topic_email").value;
+    var topicIdea  = document.getElementById("topic_idea").value;
+    var payload    = {
+        "title": topicIdea,
+        "body":  topicEmail
+    }
+
+    $.post('https://api.github.com/repos/hangops/topics/issues',
+           {"title": topicIdea,"body": topicEmail},
+           function(){ console.log('done');}
+          );
+}
+</script>
+{% endblock content %}
